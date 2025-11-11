@@ -1,0 +1,5 @@
+{
+  "name": " Pic2PDF",
+  "description": "A simple web application to upload multiple images (JPG or PNG), arrange their order, and export them as a single, consolidated PDF document, all done client-side.",
+  "requestFramePermissions": []
+}
