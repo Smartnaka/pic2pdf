@@ -25,6 +25,38 @@
         }
       }
     </script>
+    <style>
+      /* Custom styles for the range input thumb */
+      .range-thumb::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+        background-color: var(--thumb-color, #14B8A6); /* Use variable from component */
+        border-radius: 9999px; /* full */
+        cursor: pointer;
+        margin-top: -9px; /* Vertically center thumb relative to track */
+        transition: background-color 0.2s;
+      }
+
+      .range-thumb::-moz-range-thumb {
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+        background-color: var(--thumb-color, #14B8A6);
+        border-radius: 9999px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.2s;
+      }
+      
+      .range-thumb:hover::-webkit-slider-thumb {
+        background-color: #2DD4BF;
+      }
+
+      .range-thumb:hover::-moz-range-thumb {
+        background-color: #2DD4BF;
+      }
+    </style>
   <script type="importmap">
 {
   "imports": {
