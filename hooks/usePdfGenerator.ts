@@ -56,7 +56,9 @@ export const usePdfGenerator = () => {
             workerRef.current?.terminate();
 
             // Create a new worker using the blob URL method to bypass CORS
-            workerRef.current = await createWorkerFromUrl('/workers/pdf.worker.js');
+            // Use BASE_URL for correct pathing in production
+            const workerPath = `${import.meta.env.BASE_URL || '/'}workers/pdf.worker.js`;
+            workerRef.current = await createWorkerFromUrl(workerPath);
 
             workerRef.current.onmessage = (event: MessageEvent) => {
                 const { type, blob, error } = event.data;
