@@ -9,6 +9,8 @@ interface PdfControlsProps {
     setPdfFilename: (name: string) => void;
     scaleOption: 'contain' | 'cover';
     setScaleOption: (option: 'contain' | 'cover') => void;
+    isInverseOrder: boolean;
+    setIsInverseOrder: (value: boolean) => void;
     compressionQuality: number;
     setCompressionQuality: (quality: number) => void;
     onGeneratePdf: () => void;
@@ -21,6 +23,8 @@ const PdfControls: React.FC<PdfControlsProps> = ({
     setPdfFilename,
     scaleOption,
     setScaleOption,
+    isInverseOrder,
+    setIsInverseOrder,
     compressionQuality,
     setCompressionQuality,
     onGeneratePdf,
@@ -70,6 +74,19 @@ const PdfControls: React.FC<PdfControlsProps> = ({
                     className="w-full h-2 bg-base-300 rounded-lg appearance-none cursor-pointer range-thumb"
                     style={{'--thumb-color': '#14B8A6'} as React.CSSProperties}
                 />
+            </div>
+
+            <div className="mb-6">
+                <label htmlFor="inverse-order" className="inline-flex items-center gap-3 cursor-pointer">
+                    <input
+                        id="inverse-order"
+                        type="checkbox"
+                        checked={isInverseOrder}
+                        onChange={(e) => setIsInverseOrder(e.target.checked)}
+                        className="h-4 w-4 rounded border-base-300 bg-base-300 text-brand-primary focus:ring-brand-primary"
+                    />
+                    <span className="text-sm font-medium text-text-secondary">Inverse order (last imported first)</span>
+                </label>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">

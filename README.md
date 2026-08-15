@@ -4,6 +4,7 @@ Convert your images into a single PDF — fast, private, and entirely in your br
 
 Pic2PDF is a lightweight React + Vite web app that lets you:
 - Reorder images with drag-and-drop
+- Inverse output order for imported images
 - Choose scaling behavior (Fit/Contain vs Fill/Cover)
 - Adjust image compression quality to shrink PDF size
 - Set a custom output filename
@@ -15,6 +16,7 @@ All processing happens locally in your browser using a Web Worker and jsPDF — 
 - Drag-and-drop image upload (JPG/PNG)
 - Instant previews and easy removal
 - Reorder images by dragging
+- Optional inverse output order (last imported first)
 - Quality slider to balance size vs clarity
 - Client-side PDF generation via Web Worker
 - Modern, responsive UI
