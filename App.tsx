@@ -10,6 +10,7 @@ export default function App() {
     const [images, setImages] = useState<ImageFile[]>([]);
     const [errors, setErrors] = useState<string[]>([]);
     const [scaleOption, setScaleOption] = useState<'contain' | 'cover'>('contain');
+    const [isInverseOrder, setIsInverseOrder] = useState(false);
     const [pdfFilename, setPdfFilename] = useState('Pic2PDF_Export');
     const [compressionQuality, setCompressionQuality] = useState(0.8);
     const { generatePdf, isLoading } = usePdfGenerator();
@@ -109,7 +110,8 @@ export default function App() {
     };
 
     const handleGeneratePdf = () => {
-        generatePdf(images, pdfFilename, scaleOption, compressionQuality);
+        const orderedImages = isInverseOrder ? [...images].reverse() : images;
+        generatePdf(orderedImages, pdfFilename, scaleOption, compressionQuality);
     };
 
     return (
@@ -162,6 +164,8 @@ export default function App() {
                                 setPdfFilename={setPdfFilename}
                                 scaleOption={scaleOption}
                                 setScaleOption={setScaleOption}
+                                isInverseOrder={isInverseOrder}
+                                setIsInverseOrder={setIsInverseOrder}
                                 compressionQuality={compressionQuality}
                                 setCompressionQuality={setCompressionQuality}
                                 onGeneratePdf={handleGeneratePdf}
